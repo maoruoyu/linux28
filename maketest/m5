@@ -1,0 +1,13 @@
+src=$(wildcard *.c) #add.c sub.c div1.c hello.c
+obj=$(patsubst %.c,%.o,$(src)) #add.o sub.o div1.o hello.o
+myargs=-Wall -g
+
+ALL:a.out
+
+a.out:$(obj)
+	gcc $^ -o $@ $(myargs) 
+$(obj):%.o:%.c
+	gcc -c $< -o $@ $(myargs)
+clean:
+	-rm -rf $(obj) a.out
+.PHONY:clean ALL

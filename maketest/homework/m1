@@ -1,0 +1,14 @@
+src=$(wildcard *.c)
+targ=$(patsubst %.c,%,$(src))
+
+# add:add.c
+# 	gcc add.c -o add -Wall
+# sub:sub.c
+# 	gcc sub.c -o sub -Wall
+# div:div1.c 
+# 	gcc div1.c -o div -Wall
+# mul:mul.c
+# 	gcc mul.c -o mul -Wall
+# hello:hello.c
+# 	gcc hello.c -o hello -Wall
+# 
