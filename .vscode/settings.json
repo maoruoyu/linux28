@@ -7,5 +7,6 @@
         "signal.h": "c",
         "stdio.h": "c",
         "wrap.h": "c"
-    }
+    },
+    "cmake.sourceDirectory": "/home/mrm/User/tcp_socket"
 }
