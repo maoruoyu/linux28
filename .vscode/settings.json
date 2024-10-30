@@ -6,7 +6,9 @@
         "wait.h": "c",
         "signal.h": "c",
         "stdio.h": "c",
-        "wrap.h": "c"
+        "wrap.h": "c",
+        "compare": "c",
+        "type_traits": "c"
     },
     "cmake.sourceDirectory": "/home/mrm/User/tcp_socket"
 }

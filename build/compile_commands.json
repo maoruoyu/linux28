@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/mrm/User/build",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/server.dir/server.c.o -c /home/mrm/User/tcp_socket/server.c",
+  "file": "/home/mrm/User/tcp_socket/server.c",
+  "output": "CMakeFiles/server.dir/server.c.o"
+},
+{
+  "directory": "/home/mrm/User/build",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/server.dir/wrap.c.o -c /home/mrm/User/tcp_socket/wrap.c",
+  "file": "/home/mrm/User/tcp_socket/wrap.c",
+  "output": "CMakeFiles/server.dir/wrap.c.o"
+}
+]

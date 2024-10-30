@@ -1,0 +1,3 @@
+/home/mrm/User/build/CMakeFiles/server.dir
+/home/mrm/User/build/CMakeFiles/edit_cache.dir
+/home/mrm/User/build/CMakeFiles/rebuild_cache.dir

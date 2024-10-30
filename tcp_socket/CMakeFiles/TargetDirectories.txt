@@ -1,3 +1,0 @@
-/home/mrm/User/tcp_socket/CMakeFiles/server.dir
-/home/mrm/User/tcp_socket/CMakeFiles/edit_cache.dir
-/home/mrm/User/tcp_socket/CMakeFiles/rebuild_cache.dir

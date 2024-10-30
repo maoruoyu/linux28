@@ -1,0 +1,94 @@
+工作区-》（add）暂存区-》（ommit）本地库
+
+ssh：   将本地windows文件上传到linux服务器
+scp C:\Users\YourUsername\Documents\file.txt username@192.168.1.100:/home/username/
+
+基本语法：
+
+本地操作：
+git config --global user.name "your_username"
+git config --global user.email "your_email@example.com"
+
+git config --list查看配置
+
+git init
+
+git status
+
+git add .
+git commit -m '//本次提交的说明'
+
+删除工作区文件：1) git rm +文件名       2）git add 文件名    3) git commit -m '//本次提交的说明'  文件名
+（不小心删除文件，并添加到了暂存区或提交了本地库同样用git reflog（参见后续），再git reset --hard +reflog命令的索引就可以）
+
+克隆远程仓库到本地：git clone +仓库地址
+
+
+管理远程仓库：
+将本地仓库同步到远程仓库：git push
+
+
+创建个人主页：
+https://用户名.github.io 访问
+1）创建名称 【用户名.github.io】  仓库
+2)  在仓库下新建index.html 文件
+
+
+创建projects pages 项目站点
+https://用户名.github.io/仓库 访问
+搭建步骤：
+1）进入项目仓库主页，点击settings
+2）在settings页面，点击
+
+
+创建SSH密钥对：ssh-keygen -t ed25519 -C "your_email@example.com"
+密钥默认存储在~/.ssh下，将后缀名为pub的文件内容输入到GitHub SSH公钥里完成关联
+测试SSH：ssh -T git@github.com(默认访问22端口)
+使用	      ：ssh -T -P 443 git@ssh.github.com访问443端口
+
+ git remote -v：查看当前远程URL
+使用SSH方式PUSH文件到github：git push +SSH_URL（git remote add或git remote set-url方式设置的推送地址） +推送的branch（如main）
+
+ git remote add <name> <url> ：用于添加一个新的远程仓库（默认设置name为origin）
+
+ git remote set-url <name> <newurl>：用于修改现有远程仓库的URL
+
+
+查看日志：
+1）git log
+2）git log --pretty=oneline   日志和提交信息单行显示
+3）git log --oneline
+4）git reflog
+
+reset：前进或回退历史版本
+git reset --hard +reflog命令的索引（本地库将回退或前进到reflog索引指向的commit版本，hard选项将工作区和暂存区与本地库进行同步）
+ --mixed参数，本地库的指针移动的同时，重置暂存区（不改变工作区）
+--soft参数，本地库的指针移动时，暂存区和工作区不动
+
+git diff 不加参数时，将工作区和暂存区所有文件进行差异对比
+git diff test3.txt        将指定文件test3.txt工作区和暂存区文件进行对比（git按照行为单位管理数据，如aaa-》aaabbb，先删除一行aaa，再添加一行aaabbb）
+git diff  +reflog索引指针（如HEAD指针） +文件名：将暂存区与索引指向的本地库文件进行对比
+
+
+分支（branch）管理：
+在版本控制过程中，使用多条线同时推进多个任务
+多个分支可以并行开发，互不影响，提高开发效率
+如果有一个分支功能开发失败，直接删除该分支，不会对其他分支产生影响
+git branch 查看当前分支
+git branch -v 查看分支  带星号分支为当前所在分支  （-v显示分支最新提交操作）
+git branch +新创建分支名：创建新分支
+git checkout +分支名：切换到新分支上
+
+（可以使用git checkout -b branch01命令创建并切换到新分支branch01上）
+
+分支合并：切换到主分支，git merge branch01（将分支branch01内容合并到主分支）
+出现冲突：主分支和被合并分支在文件的同一个位置进行了修改，然后进行了合并
+	解决：人为决定保留哪个部分            仍处于合并状态，将文件添加到暂存区，然后进行commit操作（commit时不能加文件名）
+
+git fetch +origin（远程库URL别名）+master（远程库分支）：抓取远程库更新，但不会合并到当前本地工作区
+抓取成功可以使用checkout命令（git checkout origin/master）切换到分支，使用ls、cat等命令查看分支内容，再确认是否合并到本地master操作（合并要先切换到master分支下）：
+git merge origin/master   （merge后再add  commit不能加文件名（会导致错误））
+
+git pull origin master：相当于fetch和merge两步操作
+
+fork 、pull request
